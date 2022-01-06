@@ -4,7 +4,7 @@
 Integrationen leverer og videresender relevante personhændelser på CPR-området for kommunale fagsystemer. Et konkret eksempel kunne være, at en borger er blevet skilt og fraflyttet kommunen. Kommunens fagsystem vil i den forbindelse modtage besked om ændring af civilstatus, opdateret adresse og ændring af kommune. Fagsystemerne er herefter i stand til at kunne reagere på hændelserne ift. de myndighedssager og arbejdsgange, som de understøtter.
 
 
-- Behandle beskedtyperne CPR-hændelse og PKO (Digital Post & FjernPrint)
+### Behandle beskedtyperne CPR-hændelse og PKO (Digital Post & FjernPrint)
 
 Beskederne indeholder forretningsmæssige hændelser som er relevant for den ansvarlige myndighed.
 
