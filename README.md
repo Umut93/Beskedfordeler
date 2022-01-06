@@ -2,6 +2,9 @@
 
 - Behandle CPR-hændelser og PKO beskeder
 
+Beskedtyperne indeholder forretningsmæssige hændelser som er relevant for kommunes sagsbehandler. 
+
+
 
 - Vedligeholde værdiliste i beskedfordeler
 
