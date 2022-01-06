@@ -1,5 +1,6 @@
 # Beskedfordeler
 
+- Behandle CPR-hændelser og PKO beskeder
 
 
 - Vedligeholde værdiliste i beskedfordeler
