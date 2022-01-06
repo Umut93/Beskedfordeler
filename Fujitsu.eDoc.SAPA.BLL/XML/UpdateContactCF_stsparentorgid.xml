@@ -1,0 +1,10 @@
+﻿<operation>
+  <UPDATESTATEMENT NAMESPACE="SIRIUS" ENTITY="Contact" PRIMARYKEYVALUE="">
+    <METAITEM NAME="CF_stsparentorgid">
+      <VALUE></VALUE>
+    </METAITEM>
+    <METAITEM NAME="ToEmployer">
+      <VALUE></VALUE>
+    </METAITEM>
+  </UPDATESTATEMENT>
+</operation>

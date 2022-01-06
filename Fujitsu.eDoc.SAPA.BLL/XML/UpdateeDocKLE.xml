@@ -1,0 +1,10 @@
+﻿<operation>
+  <UPDATESTATEMENT NAMESPACE="SIRIUS" ENTITY="Noark Classification code" PRIMARYKEYVALUE="">
+    <METAITEM NAME="Fu_sts_KLE_GUID">
+      <VALUE></VALUE>
+    </METAITEM>
+    <METAITEM NAME="Description">
+      <VALUE></VALUE>
+    </METAITEM>
+  </UPDATESTATEMENT>
+</operation>

@@ -1,0 +1,34 @@
+﻿<QUERYDESC NAMESPACE="SIRIUS" ENTITY="Case" SELECTTYPE="DATASET" DATASETFORMAT="XML" TAG="RECORDS" LANGUAGE="DAN" MAXROWS="0" DISTINCT ="-1">
+  <RESULTFIELDS>
+    <METAITEM TAG="Recno">Recno</METAITEM>
+    <METAITEM TAG="OurRef">OurRef</METAITEM>
+    <METAITEM TAG="Description">Description</METAITEM>
+    <METAITEM TAG="CaseType">CaseType</METAITEM>
+    <METAITEM TAG="CaseName">Name</METAITEM>
+  </RESULTFIELDS>
+  <RELATIONS>
+    <RELATION NAME="Ourref">
+      <RESULTFIELDS>
+        <METAITEM TAG="OurRef.email">E-mail</METAITEM>
+      </RESULTFIELDS>
+    </RELATION>
+    <RELATION NAME="ToCaseContact">
+      <CRITERIA>
+        <METAITEM NAME="Referencenumber" OPERATOR="=">
+          <VALUE></VALUE>
+        </METAITEM>
+      </CRITERIA>
+      <RESULTFIELDS>
+        <METAITEM TAG="ToCaseContactName">Name</METAITEM>
+        <METAITEM TAG="ToCaseContactReferencenumber">Referencenumber</METAITEM>
+      </RESULTFIELDS>
+    </RELATION>
+    <RELATION NAME="ToCaseStatus">
+      <CRITERIA>
+        <METAITEM NAME="Closed" OPERATOR="=">
+          <VALUE>0</VALUE>
+        </METAITEM>
+      </CRITERIA>
+    </RELATION>
+  </RELATIONS>
+</QUERYDESC>

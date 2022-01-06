@@ -1,0 +1,13 @@
+﻿<operation>
+  <INSERTSTATEMENT NAMESPACE="SIRIUS" ENTITY="Noark Classification code">
+    <METAITEM NAME="Fu_sts_KLE_GUID">
+      <VALUE></VALUE>
+    </METAITEM>
+    <METAITEM NAME="Code">
+      <VALUE></VALUE>
+    </METAITEM>
+    <METAITEM NAME="Description">
+      <VALUE></VALUE>
+    </METAITEM>
+  </INSERTSTATEMENT>
+</operation>

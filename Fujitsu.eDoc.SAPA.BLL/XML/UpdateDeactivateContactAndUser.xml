@@ -1,0 +1,14 @@
+﻿<operation type="metagrammar">
+	<UPDATESTATEMENT NAMESPACE="SIRIUS" ENTITY="Contact" PRIMARYKEYVALUE="[contactRecno]">
+		<METAITEM NAME="ActiveContact">
+			<VALUE>0</VALUE>
+		</METAITEM>
+	</UPDATESTATEMENT>
+	<BATCH>
+		<UPDATESTATEMENT NAMESPACE="SIRIUS" ENTITY="User" PRIMARYKEYVALUE="[userRecno]">
+			<METAITEM NAME="Active">
+				<VALUE>0</VALUE>
+			</METAITEM>
+		</UPDATESTATEMENT>
+	</BATCH>
+</operation>

@@ -1,0 +1,13 @@
+﻿<operation>
+  <QUERYDESC NAMESPACE="SIRIUS" ENTITY="Case" SELECTTYPE="DATASET" DATASETFORMAT="XML" TAG="RECORDS" MAXROWS="0">
+    <RESULTFIELDS>
+      <METAITEM TAG="recno">Recno</METAITEM>
+      <METAITEM TAG="CF_stscaseid">CF_stscaseid</METAITEM>
+    </RESULTFIELDS>
+    <CRITERIA>
+      <METAITEM NAME="CF_stscaseid" OPERATOR="IS NOT NULL">
+        <VALUE></VALUE>
+      </METAITEM>
+    </CRITERIA>
+  </QUERYDESC>
+</operation>

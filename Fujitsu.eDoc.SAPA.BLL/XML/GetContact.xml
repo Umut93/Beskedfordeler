@@ -1,0 +1,20 @@
+﻿<operation>
+	<QUERYDESC NAMESPACE="SIRIUS" ENTITY="Contact" SELECTTYPE="DATASET" DATASETFORMAT="XML" TAG="RECORDS" MAXROWS="0">
+		<RESULTFIELDS>
+			<METAITEM TAG="Recno">Recno</METAITEM>
+			<METAITEM TAG="Name">Name</METAITEM>
+			<METAITEM TAG="StsOrgId">CF_stsorgid</METAITEM>
+			<METAITEM TAG="ActiveContact">ActiveContact</METAITEM>
+			<METAITEM TAG="ParentRecno">ToEmployer</METAITEM>
+			<METAITEM TAG="StsParentOrgId">CF_stsparentorgid</METAITEM>
+		</RESULTFIELDS>
+		<CRITERIA>
+			<METAITEM NAME="CF_stsorgid" OPERATOR="IS NOT NULL">
+				<VALUE></VALUE>
+			</METAITEM>
+			<METAITEM NAME="Domain" OPERATOR="=">
+				<VALUE>1</VALUE>
+			</METAITEM>
+		</CRITERIA>
+	</QUERYDESC>
+</operation>

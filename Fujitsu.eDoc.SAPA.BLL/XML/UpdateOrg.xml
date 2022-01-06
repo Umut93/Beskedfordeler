@@ -1,0 +1,19 @@
+﻿<operation>
+  <UPDATESTATEMENT NAMESPACE="SIRIUS" ENTITY="Contact" PRIMARYKEYVALUE="">
+    <METAITEM NAME="Domain">
+      <VALUE>1</VALUE>
+    </METAITEM>
+    <METAITEM NAME="ActiveContact">
+      <VALUE>-1</VALUE>
+    </METAITEM>
+    <METAITEM NAME="Name">
+      <VALUE></VALUE>
+    </METAITEM>
+    <METAITEM NAME="Referencenumber">
+      <VALUE></VALUE>
+    </METAITEM>
+    <METAITEM NAME="IsInternal">
+      <VALUE>-1</VALUE>
+    </METAITEM>
+  </UPDATESTATEMENT>
+</operation>

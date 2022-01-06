@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ECDF16F2-78BB-4485-8DCE-BB148A41C17F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fujitsu.eDoc.SAPA.BLL</RootNamespace>
+    <AssemblyName>Fujitsu.eDoc.SAPA.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Fujitsu.Invia.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Fujitsu.eDoc.ClassCodeAdmin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fujitsu.eDoc.Core.DLL.5.1.40.14556\lib\Fujitsu.eDoc.ClassCodeAdmin.dll</HintPath>
+    </Reference>
+    <Reference Include="Fujitsu.eDoc.Codebehind, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f50cf2fc45d3fd2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fujitsu.eDoc.Core.DLL.5.1.40.14556\lib\Fujitsu.eDoc.Codebehind.dll</HintPath>
+    </Reference>
+    <Reference Include="Fujitsu.eDoc.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=402811e591a0c620, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fujitsu.eDoc.Core.DLL.5.1.40.14556\lib\Fujitsu.eDoc.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Fujitsu.eDoc.Core.DefaultValue.Codebehind, Version=1.0.0.0, Culture=neutral, PublicKeyToken=402811e591a0c620, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fujitsu.eDoc.Core.DLL.5.1.40.14556\lib\Fujitsu.eDoc.Core.DefaultValue.Codebehind.dll</HintPath>
+    </Reference>
+    <Reference Include="Fujitsu.eDoc.ImportData, Version=4.0.0.0, Culture=neutral, PublicKeyToken=402811e591a0c620, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fujitsu.eDoc.Core.DLL.5.1.40.14556\lib\Fujitsu.eDoc.ImportData.dll</HintPath>
+    </Reference>
+    <Reference Include="Fujitsu.eDoc.Notification, Version=1.0.0.0, Culture=neutral, PublicKeyToken=402811e591a0c620, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fujitsu.eDoc.Core.DLL.5.1.40.14556\lib\Fujitsu.eDoc.Notification.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="SI.Biz.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=84474dc3c65e4430, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Packages\SI 5.0.0\SI.Biz.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SI.Biz.Core.ClientAccess, Version=4.0.0.0, Culture=neutral, PublicKeyToken=84474dc3c65e4430, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Packages\SI 5.0.0\SI.Biz.Core.ClientAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="SI.Common.UserState, Version=4.0.0.0, Culture=neutral, PublicKeyToken=af1788dd2c6dee3b" />
+    <Reference Include="SI.Linq.Meta, Version=4.0.0.0, Culture=neutral, PublicKeyToken=84474dc3c65e4430" />
+    <Reference Include="SI.Linq.Provider, Version=4.0.0.0, Culture=neutral, PublicKeyToken=84474dc3c65e4430" />
+    <Reference Include="SI.Util, Version=4.0.0.0, Culture=neutral, PublicKeyToken=84474dc3c65e4430, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Packages\SI 5.0.0\SI.Util.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CaseRepo\AttributListen\AttributListe.cs" />
+    <Compile Include="CaseRepo\AttributListen\Egenskaber.cs" />
+    <Compile Include="CaseRepo\AttributListen\SagIndeksEgenskaber.cs" />
+    <Compile Include="CaseRepo\CommonValues.cs" />
+    <Compile Include="CaseRepo\Registering.cs" />
+    <Compile Include="CaseRepo\RelationListen\RelationListe.cs" />
+    <Compile Include="CaseRepo\RelationListen\Sagsaktoer.cs" />
+    <Compile Include="CaseRepo\RelationListen\Sagsarkiver.cs" />
+    <Compile Include="CaseRepo\RelationListen\Sagsitsystemer.cs" />
+    <Compile Include="CaseRepo\RelationListen\Sagsklasser.cs" />
+    <Compile Include="CaseRepo\RelationListen\Sagsparter.cs" />
+    <Compile Include="CaseRepo\Sag.cs" />
+    <Compile Include="CaseRepo\TilstandListen\FremdriftAfgjort.cs" />
+    <Compile Include="CaseRepo\TilstandListen\FremdriftOpstaaet.cs" />
+    <Compile Include="CaseRepo\TilstandListen\TilstandListe.cs" />
+    <Compile Include="CommonHelper.cs" />
+    <Compile Include="MessageHandlers\CPREventHandler.cs" />
+    <Compile Include="DbUtil.cs" />
+    <Compile Include="DocumentRepo.cs" />
+    <Compile Include="DokumentaktoerLokalUdvidelse.cs" />
+    <Compile Include="DokumentItSystemRelation.cs" />
+    <Compile Include="DokumentklasseLokalUdvidelse.cs" />
+    <Compile Include="EdocRepo.cs" />
+    <Compile Include="EventHandlers\CaseOnDelete.cs" />
+    <Compile Include="EventHandlers\DocumentOnDelete.cs" />
+    <Compile Include="EventLog.cs" />
+    <Compile Include="MessageHandlers\DigitalPostStatusPrintHandler.cs" />
+    <Compile Include="MessageHandlers\IMessageHandler.cs" />
+    <Compile Include="MessageHandlers\CustomAttribute\UUIDAttribute.cs" />
+    <Compile Include="Model\BatchMessage\BMCaseWorker.cs" />
+    <Compile Include="Model\BatchMessage\IMessageDistributorConfigSF1601.cs" />
+    <Compile Include="Model\BatchMessage\MessageDistributorConfigSF1601.cs" />
+    <Compile Include="Model\BatchMessage\MessageResponsibleActor.cs" />
+    <Compile Include="Model\BatchOrgUserJob\OrgUser.cs" />
+    <Compile Include="Model\BatchUserJob\BllOrganisation.cs" />
+    <Compile Include="Model\BatchUserJob\BllUser.cs" />
+    <Compile Include="Model\Case.cs" />
+    <Compile Include="Model\CaseParty.cs" />
+    <Compile Include="Model\CasePartyList.cs" />
+    <Compile Include="Model\Document.cs" />
+    <Compile Include="Model\BatchMessage\DigitalPostMessage.cs" />
+    <Compile Include="Model\BatchMessage\PostStatus.cs" />
+    <Compile Include="Model\STSCase.cs" />
+    <Compile Include="OrgRepo.cs" />
+    <Compile Include="ProcessEngine\BatchCaseJob.cs" />
+    <Compile Include="ProcessEngine\BatchDeleteCaseJob.cs" />
+    <Compile Include="ProcessEngine\BatchMessageDistributionMaintainValueListJob.cs" />
+    <Compile Include="ProcessEngine\BatchMessageDistributionJob.cs" />
+    <Compile Include="ProcessEngine\BatchOrgJob.cs" />
+    <Compile Include="ProcessEngine\BatchOrgUserDaysJob.cs" />
+    <Compile Include="ProcessEngine\BatchOrgUserJob.cs" />
+    <Compile Include="ProcessEngine\BatchUserJob.cs" />
+    <Compile Include="ProcessEngine\UserRepo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SapaSetings.cs" />
+    <Compile Include="XmlUtil.cs" />
+    <EmbeddedResource Include="XML\GetAllContactsWithSTSUserGUIDToken.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fujitsu.eDoc.SAPA.CaseDocumentService5\Fujitsu.eDoc.SAPA.CaseDocumentService5.csproj">
+      <Project>{420d020f-d38e-41b6-9cf0-fa4178b4e6c2}</Project>
+      <Name>Fujitsu.eDoc.SAPA.CaseDocumentService5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fujitsu.eDoc.SAPA.Common\Fujitsu.eDoc.SAPA.Common.csproj">
+      <Project>{23121b0d-f6e1-4f4c-9aab-2ee31fef43e0}</Project>
+      <Name>Fujitsu.eDoc.SAPA.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fujitsu.eDoc.SAPA.DB\Fujitsu.eDoc.SAPA.DB.csproj">
+      <Project>{fe0edfb1-8082-4b65-a9a5-566c22098bb9}</Project>
+      <Name>Fujitsu.eDoc.SAPA.DB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fujitsu.eDoc.SAPA.MsgDistributorService\Fujitsu.eDoc.SAPA.MsgDistributorService.csproj">
+      <Project>{f323d90f-29f1-4907-9387-d230c8e37678}</Project>
+      <Name>Fujitsu.eDoc.SAPA.MsgDistributorService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fujitsu.eDoc.SAPA.OrgService5\Fujitsu.eDoc.SAPA.OrgService5.csproj">
+      <Project>{69A884C4-27E5-4109-BF76-DB45D776311F}</Project>
+      <Name>Fujitsu.eDoc.SAPA.OrgService5</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\GetUserWithContactRecno.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XML\UpdateDeactivateContactAndUser.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XML\GetCPRMessage.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XML\UpdateContact.xml" />
+    <EmbeddedResource Include="XML\UpdateContactCF_stsparentorgid.xml" />
+    <EmbeddedResource Include="XML\GetAllContactWithSTSUserGUID.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XML\InsertContactSTSOrgIdAndDateTime.xml" />
+    <EmbeddedResource Include="EventHandlers\XML\GetCaseWithSTSCaseGUID.xml" />
+    <Content Include="ProcessEngine\WorkUnit\FUBatchMessageDistributionMaintainValueListJob.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchOrgUserDaysJob.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchOrgUserJob.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchUserJob.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuSAPADistributionReceiver.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="XML\GetDocumentsWithSTSGUID.xml" />
+    <EmbeddedResource Include="XML\GetCaseWithSTSGUID.xml" />
+    <EmbeddedResource Include="XML\UpdateDocument.xml" />
+    <EmbeddedResource Include="XML\GetCaseWithCF_stscaseid.xml" />
+    <EmbeddedResource Include="XML\GetContactReferenceNumber.xml" />
+    <EmbeddedResource Include="XML\GetDocumentsFromCaseRecno.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XML\UpdateCase.xml" />
+    <None Include="App.config" />
+    <None Include="Fujitsu.Invia.snk" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchCaseDeleteJob.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchCaseJob.wu">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchMessageDistribution.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchOrgJob.wu">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchMessageDistribution.wu">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchCaseDeleteJob.wu">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuSAPADistributionReceiver.wu">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchOrgUserDaysJob.wu">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FUBatchMessageDistributionMaintainValueListJob.wu">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="ProcessEngine\WorkUnit\FuBatchOrgUserJob.wu">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ProcessEngine\WorkUnit\FuBatchUserJob.wu">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\GetContact.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\CreateOrg.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="XML\UpdateOrg.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchCaseJob.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProcessEngine\WorkUnit\FuBatchOrgJob.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <EmbeddedResource Include="XML\XMLFile1.xml" />
+    <EmbeddedResource Include="XML\GetSelection.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XML\GetFuSAPACaseDocumentIndices.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XML\DeleteOrg.xml" />
+    <EmbeddedResource Include="XML\GetCodeTableValues.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\x64\gacutil.exe" /if "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>

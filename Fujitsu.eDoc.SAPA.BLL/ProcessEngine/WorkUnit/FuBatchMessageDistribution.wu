@@ -1,0 +1,8 @@
+﻿<workUnit displayName="Beskedfordeler synkronisering" id="D61BCB48-801B-4454-9E83-963894B7D07A" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\..\WorkUnit.xsd">
+  <description>Synkronisering mellem beskedfordeler og eDoc</description>
+  <executable>
+    <invoke>
+    </invoke>
+  </executable>
+  <job queue="Sys.Manually" runAs="SystemDefault" resultType="none"/>
+</workUnit>

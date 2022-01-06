@@ -1,0 +1,8 @@
+﻿<workUnit displayName="Vedligeholde værdilister i beskedfordeler" id="04415ad6-363d-4ca7-b9bc-b2e40188345b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="..\..\WorkUnit.xsd">
+  <description>Vedligeholdelse af CPR værdilister i beskedfordeler</description>
+  <executable>
+    <invoke>
+    </invoke>
+  </executable>
+  <job queue="Sys.OnceNightly" runAs="SystemDefault" resultType="none"/>
+</workUnit>

@@ -1,0 +1,12 @@
+﻿<operation>
+  <QUERYDESC NAMESPACE="SIRIUS" ENTITY="code table: Fu SAPA Search Favorites" SELECTTYPE="DATASET" DATASETFORMAT="XML" TAG="RECORDS">
+    <RESULTFIELDS>
+      <METAITEM TAG="ToSelection">SearchFavorite</METAITEM>
+      <METAITEM TAG="ToDate">ToDate</METAITEM>
+    </RESULTFIELDS>
+    <CRITERIA>
+      <METAITEM NAME="Recno" OPERATOR="IS NOT NULL">
+      </METAITEM>
+    </CRITERIA>
+  </QUERYDESC>
+</operation>

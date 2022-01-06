@@ -1,0 +1,371 @@
+﻿<QUERYDESC NAMESPACE="SIRIUS" ENTITY="CaseGeneric" DATASETFORMAT="XML+LABELS+DATATYPES" TAG="RECORDS" LOGTYPE="1" STARTROW="1" MAXROWS="100">
+    <NESTING>
+        <NESTED NESTNAME="nesting-6adc58ee-1" ANDOR="AND" />
+    </NESTING>
+    <RESULTFIELDS>
+        <METAITEM TAG="recno">Recno</METAITEM>
+        <METAITEM TAG="name">Name</METAITEM>
+        <METAITEM TAG="startdate">StartDate</METAITEM>
+        <METAITEM TAG="enddate">EndDate</METAITEM>
+        <METAITEM TAG="subtype">CaseType</METAITEM>
+        <METAITEM TAG="description">UnofficialTitle</METAITEM>
+        <METAITEM TAG="PublicTitle">Description</METAITEM>
+        <METAITEM TAG="tosubarchive">ToSubArchive</METAITEM>
+        <METAITEM TAG="tojournalunit">ToJournalUnit</METAITEM>
+        <METAITEM TAG="Notes">Notes</METAITEM>
+        <METAITEM TAG="Paper">Paper</METAITEM>
+        <METAITEM TAG="LastActivity">LastActivityDate</METAITEM>
+        <METAITEM TAG="AccessStatute">ToAuthorization</METAITEM>
+        <METAITEM TAG="RetentionTime">PreserveYears</METAITEM>
+        <METAITEM TAG="CreatedDate">StartDate</METAITEM>
+        <METAITEM TAG="FuICInjuryFromDate">ICInjuryFromDate</METAITEM>
+        <METAITEM TAG="FuICInjuryToDate">ICInjuryToDate</METAITEM>
+        <METAITEM TAG="FuICNotes">ICNotes</METAITEM>
+        <METAITEM TAG="FuICTotalAmount" FORCETYPE="float">ICTotalAmount</METAITEM>
+        <METAITEM TAG="FuDeadLineDateAndTime">DeadlineDateAndTime</METAITEM>
+        <METAITEM TAG="FuBOMCaseNumber">BOMCaseNumber</METAITEM>
+        <METAITEM TAG="FuBOMDeadline">BOMDeadline</METAITEM>
+        <METAITEM TAG="FuBOMInitiativeDuty">BOMInitiativeDuty</METAITEM>
+        <METAITEM TAG="FuBOMResponsibleAuthority">BOMResponsibleAuthority</METAITEM>
+        <METAITEM TAG="FuBOMLastActivity">BOMLastActivity</METAITEM>
+        <METAITEM TAG="LapseComplexity">Description</METAITEM>
+        <METAITEM TAG="FuClosedDate">ClosedDate</METAITEM>
+        <METAITEM TAG="ClosedDate" SQLFUNC="SubString(convert(varchar,[.],105),1,10)">ClosedDate</METAITEM>
+        <METAITEM TAG="FuHasNotes">ToCaseHasNotes</METAITEM>
+        <METAITEM TAG="ModifiedDate">ModifiedDate</METAITEM>
+        <METAITEM TAG="CF_stscaseid">CF_stscaseid</METAITEM>
+        <METAITEM TAG="ToModifiedBy">ToModifiedBy</METAITEM>
+    </RESULTFIELDS>
+    <ORDERFIELDS>
+        <METAITEM DESC="-1" ORDERSEQ="0">CreatedDate</METAITEM>
+    </ORDERFIELDS>
+    <CRITERIA />
+    <RELATIONS>
+        <RELATION NAME="ToModifiedBy">
+            <RESULTFIELDS>
+                <METAITEM TAG="Recno">Recno</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToHistory" JOINEX="[ToContact] {!OJEX!} = {!CONTACTRECNO!}">
+            <RESULTFIELDS>
+                <METAITEM TAG="ToHistory.Date" FORCETYPE="dateTime">Date</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="CaseType">
+            <RESULTFIELDS>
+                <METAITEM TAG="typecode">Code</METAITEM>
+                <METAITEM TAG="casetype.recno">Recno</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToCaseStatus">
+            <RESULTFIELDS>
+                <METAITEM TAG="statusdescription">Description</METAITEM>
+                <METAITEM TAG="status">Recno</METAITEM>
+                <METAITEM TAG="voided">Voided</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="OurRef">
+            <RESULTFIELDS>
+                <METAITEM TAG="ourref">SearchName</METAITEM>
+                <METAITEM TAG="ourref.subtype">Domain</METAITEM>
+                <METAITEM TAG="ourref.recno">Recno</METAITEM>
+                <METAITEM TAG="ourref.active">ActiveContact</METAITEM>
+                <METAITEM TAG="ourref.email">E-mail</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToOrgUnit">
+            <RESULTFIELDS>
+                <METAITEM TAG="orgunit">SearchName</METAITEM>
+                <METAITEM TAG="orgunit.subtype">Domain</METAITEM>
+                <METAITEM TAG="orgunit.recno">Recno</METAITEM>
+                <METAITEM TAG="orgunit.active">ActiveContact</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToAccessCode">
+            <RESULTFIELDS>
+                <METAITEM TAG="accesscode">Code</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToAccessGroup">
+            <RESULTFIELDS>
+                <METAITEM TAG="accessgroup">Code</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToPrimaryClassCode">
+            <RESULTFIELDS>
+                <METAITEM TAG="PrimaryClassValue">Value</METAITEM>
+                <METAITEM TAG="ClassCode">ToClassCode</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS>
+                <RELATION NAME="ToClassCode">
+                    <RESULTFIELDS>
+                        <METAITEM TAG="PrimaryClassCode">Code</METAITEM>
+                        <METAITEM TAG="ProcessCode">Code</METAITEM>
+                        <METAITEM TAG="ProcessDescription">Description</METAITEM>
+                        <METAITEM TAG="ClassCodeStructure">StructureNumber</METAITEM>
+                        <METAITEM TAG="ClassCode.Code">Code</METAITEM>
+                        <METAITEM TAG="ClassCode.Description">Description</METAITEM>
+                    </RESULTFIELDS>
+                    <ORDERFIELDS />
+                    <CRITERIA />
+                    <RELATIONS />
+                </RELATION>
+                <RELATION NAME="ToClassType">
+                    <RESULTFIELDS>
+                        <METAITEM TAG="ClassSystem">Recno</METAITEM>
+                        <METAITEM TAG="ClassSystemCategory">ToClassificationTypeCategories</METAITEM>
+                    </RESULTFIELDS>
+                    <ORDERFIELDS />
+                    <CRITERIA />
+                    <RELATIONS />
+                </RELATION>
+            </RELATIONS>
+        </RELATION>
+        <RELATION NAME="ToSubArchive">
+            <RESULTFIELDS>
+                <METAITEM TAG="ToSubArchiveDesc">Code</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToJournalUnit">
+            <RESULTFIELDS>
+                <METAITEM TAG="ToJournalUnitDesc">Description</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="Project">
+            <RESULTFIELDS>
+                <METAITEM TAG="Project.Name">Name</METAITEM>
+                <METAITEM TAG="Project.Description">Description</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToCaseCategory">
+            <RESULTFIELDS>
+                <METAITEM TAG="CaseCategory">Description</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToScrapCode">
+            <RESULTFIELDS>
+                <METAITEM TAG="ScrapCode">Code</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToInsuranceCaseCompensation">
+            <RESULTFIELDS>
+                <METAITEM TAG="FuICTypeOfInjury">TypeOfInjury</METAITEM>
+                <METAITEM TAG="FuICCompensationAmount" FORCETYPE="float">Amount</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ICArea">
+            <RESULTFIELDS>
+                <METAITEM TAG="FuICArea">Description</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToCaseContact" JOINEX="[ToRole]{!OJEX!}=300154">
+            <RESULTFIELDS />
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS>
+                <RELATION NAME="ToContact">
+                    <RESULTFIELDS>
+                        <METAITEM TAG="FUICCustomer">Name</METAITEM>
+                    </RESULTFIELDS>
+                    <ORDERFIELDS />
+                    <CRITERIA />
+                    <RELATIONS />
+                </RELATION>
+            </RELATIONS>
+        </RELATION>
+        <RELATION NAME="ToCaseContact" JOINEX="[ToRole]{!OJEX!}=300155">
+            <RESULTFIELDS />
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS>
+                <RELATION NAME="ToContact">
+                    <RESULTFIELDS>
+                        <METAITEM TAG="FuICDepartment">Name</METAITEM>
+                    </RESULTFIELDS>
+                    <ORDERFIELDS />
+                    <CRITERIA />
+                    <RELATIONS />
+                </RELATION>
+            </RELATIONS>
+        </RELATION>
+        <RELATION NAME="ICDecision">
+            <RESULTFIELDS>
+                <METAITEM TAG="FuICDecision">Description</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ICInsuranceType">
+            <RESULTFIELDS>
+                <METAITEM TAG="FuICInsuranceType">Description</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToCaseContact" JOINEX="[ToRole]{!OJEX!}=300007">
+            <RESULTFIELDS>
+                <METAITEM TAG="FuCitizenReferenceNumber">ReferenceNumber</METAITEM>
+                <METAITEM TAG="FuCitizenName">Name</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS>
+                <RELATION NAME="ToContact">
+                    <RESULTFIELDS />
+                    <ORDERFIELDS />
+                    <CRITERIA />
+                    <RELATIONS>
+                        <RELATION NAME="Addresses" JOINEX="[TypeID]{!OJEX!}=50001">
+                            <RESULTFIELDS>
+                                <METAITEM TAG="FuCitizenAddress">Address</METAITEM>
+                                <METAITEM TAG="FuCitizenZipCode">ZipCode</METAITEM>
+                                <METAITEM TAG="FuCitizenZipPlace">ZipPlace</METAITEM>
+                            </RESULTFIELDS>
+                            <ORDERFIELDS />
+                            <CRITERIA />
+                            <RELATIONS />
+                        </RELATION>
+                    </RELATIONS>
+                </RELATION>
+            </RELATIONS>
+        </RELATION>
+        <RELATION NAME="ToBOMCase">
+            <RESULTFIELDS />
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS>
+                <RELATION NAME="StatusCode">
+                    <RESULTFIELDS>
+                        <METAITEM TAG="FuBOMStatusCode">Description</METAITEM>
+                    </RESULTFIELDS>
+                    <ORDERFIELDS />
+                    <CRITERIA />
+                    <RELATIONS />
+                </RELATION>
+                <RELATION NAME="PhaseCode">
+                    <RESULTFIELDS>
+                        <METAITEM TAG="FuBOMPhaseCode">Description</METAITEM>
+                    </RESULTFIELDS>
+                    <ORDERFIELDS />
+                    <CRITERIA />
+                    <RELATIONS />
+                </RELATION>
+            </RELATIONS>
+        </RELATION>
+        <RELATION NAME="ToCaseComplexity">
+            <RESULTFIELDS>
+                <METAITEM TAG="ToCaseComplexityCode">Code</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToCaseStatusPlan">
+            <RESULTFIELDS>
+                <METAITEM TAG="ToCaseStatusPlanDescription">Description</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToCaseContact" JOINEX="[ToRole]{!OJEX!}=300273">
+            <RESULTFIELDS />
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS>
+                <RELATION NAME="ToContact">
+                    <RESULTFIELDS>
+                        <METAITEM TAG="FuCompanyCVR">Referencenumber</METAITEM>
+                        <METAITEM TAG="FuCompanyPNumber">CF_productionunit</METAITEM>
+                    </RESULTFIELDS>
+                    <ORDERFIELDS />
+                    <CRITERIA />
+                    <RELATIONS />
+                </RELATION>
+            </RELATIONS>
+        </RELATION>
+        <RELATION NAME="ToActivePhase">
+            <RESULTFIELDS>
+                <METAITEM TAG="ActivePhase">Description</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <RELATION NAME="ToClassCodes" JOINEX="[Sort]{!OJEX!}=2">
+            <RESULTFIELDS>
+                <METAITEM TAG="FUClassCode">Value</METAITEM>
+            </RESULTFIELDS>
+            <ORDERFIELDS />
+            <CRITERIA />
+            <RELATIONS />
+        </RELATION>
+        <SUBSELECT OPERATOR="EXISTS" NAME="ToCaseStatus" NESTNAME="nesting-6adc58ee-1" ANDOR="AND">
+            <NESTING />
+            <CRITERIA>
+                <METAITEM NAME="Recno" OPERATOR="=" ANDOR="AND">
+                    <VALUE>300001</VALUE>
+                </METAITEM>
+            </CRITERIA>
+            <RELATIONS />
+        </SUBSELECT>
+        <SUBSELECT OPERATOR="EXISTS" NAME="CaseType" NESTNAME="nesting-6adc58ee-1" ANDOR="AND">
+            <NESTING />
+            <CRITERIA>
+                <METAITEM NAME="Recno" OPERATOR="=" ANDOR="AND">
+                    <VALUE>300001</VALUE>
+                </METAITEM>
+            </CRITERIA>
+            <RELATIONS />
+        </SUBSELECT>
+    </RELATIONS>
+</QUERYDESC>

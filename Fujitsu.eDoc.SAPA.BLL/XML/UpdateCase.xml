@@ -1,0 +1,10 @@
+﻿<operation>
+  <UPDATESTATEMENT NAMESPACE="SIRIUS" ENTITY="Case" PRIMARYKEYVALUE="">
+    <METAITEM NAME="CF_stscaseid">
+      <VALUE></VALUE>
+    </METAITEM>
+      <METAITEM NAME="CF_stscasedate">
+      <VALUE></VALUE>
+    </METAITEM>
+  </UPDATESTATEMENT>
+</operation>

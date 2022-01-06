@@ -1,0 +1,81 @@
+﻿<QUERYDESC NAMESPACE="SIRIUS" ENTITY="Document" DATASETFORMAT="XML+LABELS+DATATYPES" TAG="RECORDS" STARTROW="1" MAXROWS="0">
+  <NESTING>
+    <NESTED NESTNAME="mi" ANDOR="OR"></NESTED>
+  </NESTING>
+  <CRITERIA>
+    <METAITEM NAME="ToCase" OPERATOR="="  ANDOR="AND"></METAITEM>
+    <METAITEM NAME="CF_tojournalnotetype" OPERATOR="IS NULL" NESTNAME="mi" ANDOR="OR"></METAITEM>
+  </CRITERIA>
+  <RESULTFIELDS>
+    <METAITEM TAG="DocRecno">Recno</METAITEM>
+    <METAITEM TAG="DocModifiedDate">ModifiedDate</METAITEM>
+    <METAITEM TAG="DocTitle">Title</METAITEM>
+    <METAITEM TAG="DocDocumentNumber">DocumentNumber</METAITEM>
+    <METAITEM TAG="DocToDocumentCategory">ToDocumentCategory</METAITEM>
+    <METAITEM TAG="DocToModifiedBy">ToModifiedBy</METAITEM>
+    <METAITEM TAG="DocOurRef">OurRef</METAITEM>
+    <METAITEM TAG="DocToOrgUnit">ToOrgUnit</METAITEM>
+    <METAITEM TAG="DocToSapaDocumentSensitivity">ToSapaDocumentSensitivity</METAITEM>
+		<METAITEM TAG="DocExcludedFromSapa">ExcludedFromSapa</METAITEM>
+    <METAITEM TAG="DocToJournalStatus">ToJournalStatus</METAITEM>
+    <METAITEM TAG="DocToCreatedByRecno">ToCreatedBy</METAITEM>
+    <METAITEM TAG="DocToDocumentArchive">ToDocumentArchive</METAITEM>
+    <METAITEM TAG="DocCFJournalnote">CF_journalnote</METAITEM>
+    <METAITEM TAG="DocCFModifiedDate">CF_ModifiedDate</METAITEM>
+    <METAITEM TAG="CF_tojournalnotetype">CF_tojournalnotetype</METAITEM>
+    <METAITEM TAG="DocNotes">Notes</METAITEM>
+  </RESULTFIELDS>
+  <RELATIONS>
+    <RELATION NAME="CF_tojournalnotetype" JOIN="LEFT OUTER">
+      <CRITERIA>
+        <METAITEM NAME="FuSapa" OPERATOR="=" ANDOR="OR" NESTNAME="mi">
+          <VALUE>-1</VALUE>
+        </METAITEM>
+      </CRITERIA>
+    </RELATION>
+    <RELATION NAME="ToJournalStatus">
+      <RESULTFIELDS>
+        <METAITEM TAG="DocClosed">Closed</METAITEM>
+      </RESULTFIELDS>
+    </RELATION>
+    <RELATION NAME="ToCreatedBy">
+      <RELATIONS>
+        <RELATION NAME="ToUser">
+          <RESULTFIELDS>
+            <METAITEM TAG="DocToCreatedByUserId">UserID</METAITEM>
+          </RESULTFIELDS>
+        </RELATION>
+      </RELATIONS>
+    </RELATION>
+    <RELATION NAME="ToModifiedBy">
+      <RELATIONS>
+        <RELATION NAME="ToUser">
+          <RESULTFIELDS>
+            <METAITEM TAG="DocToModifiedByUserID">UserID</METAITEM>
+            <METAITEM TAG="DocToModifiedByContactID">ContactID</METAITEM>
+          </RESULTFIELDS>
+        </RELATION>
+      </RELATIONS>
+    </RELATION>
+    <RELATION NAME="ToOrgUnit">
+      <RESULTFIELDS>
+        <METAITEM TAG="DocToOrgUnitSTSID">CF_stsorgid</METAITEM>
+        <METAITEM TAG="DocToOrgUnitName">Name</METAITEM>
+        <METAITEM TAG="DocToOrgUnitRecno">Recno</METAITEM>
+      </RESULTFIELDS>
+    </RELATION>
+    <RELATION NAME="OurRef">
+      <RESULTFIELDS>
+        <METAITEM TAG="DocToOurRefName">Name</METAITEM>
+      </RESULTFIELDS>
+      <RELATIONS>
+        <RELATION NAME="User">
+          <RESULTFIELDS>
+            <METAITEM TAG="DocToOurRefUserID">UserID</METAITEM>
+            <METAITEM TAG="DocToOurRefContactID">ContactID</METAITEM>
+          </RESULTFIELDS>
+        </RELATION>
+      </RELATIONS>
+    </RELATION>
+  </RELATIONS>
+</QUERYDESC>

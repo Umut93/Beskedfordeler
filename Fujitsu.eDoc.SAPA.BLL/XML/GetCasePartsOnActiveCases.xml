@@ -1,0 +1,24 @@
+﻿<operation>
+  <QUERYDESC NAMESPACE="SIRIUS" ENTITY="Case" SELECTTYPE="DATASET" DATASETFORMAT="XML" TAG="RECORDS" MAXROWS="-1" LANGUAGE='DAN' DISTINCT='-1'>
+    <RESULTFIELDS>
+    </RESULTFIELDS>
+    <RELATIONS>
+      <RELATION NAME="ToCaseContact">
+        <RESULTFIELDS>
+          <METAITEM TAG="ReferenceNumber">ReferenceNumber</METAITEM>
+        </RESULTFIELDS>
+        <CRITERIA>
+          <METAITEM NAME="ReferenceNumber" OPERATOR="IS NOT NULL">
+          </METAITEM>
+        </CRITERIA>
+      </RELATION>
+      <RELATION NAME="ToCaseStatus">
+        <CRITERIA>
+          <METAITEM NAME="Recno" OPERATOR="=" ANDOR="AND">
+            <VALUE>300001</VALUE>
+          </METAITEM>
+        </CRITERIA>
+      </RELATION>
+    </RELATIONS>
+  </QUERYDESC>
+</operation>

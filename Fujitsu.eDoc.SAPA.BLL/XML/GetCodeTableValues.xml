@@ -1,0 +1,8 @@
+﻿<operation>
+  <QUERYDESC NAMESPACE="SIRIUS" ENTITY="code table: Fu SAPA Configuration" SELECTTYPE="DATASET" DATASETFORMAT="XML" TAG="RECORDS" LANGUAGE="DAN">
+    <RESULTFIELDS>
+      <METAITEM TAG="Key">Key</METAITEM>
+      <METAITEM TAG="Value">Value</METAITEM>
+    </RESULTFIELDS>
+  </QUERYDESC>
+</operation>
