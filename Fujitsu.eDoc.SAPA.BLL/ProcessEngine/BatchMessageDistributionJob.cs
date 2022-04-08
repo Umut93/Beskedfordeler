@@ -22,7 +22,6 @@ namespace Fujitsu.eDoc.SAPA.BLL.ProcessEngine
 
         public static void BatchMessage()
         {
-
             Dictionary<string, string> codeTableConfigRecords = GetSetting();
             string value = string.Empty;
 
@@ -49,7 +48,7 @@ namespace Fujitsu.eDoc.SAPA.BLL.ProcessEngine
                         if (handler != null)
                         {
                             handler.Process(msgXMl);
-                            File.Delete(files[i]);
+                            //File.Delete(files[i]);
                         }
                     }
 
@@ -59,7 +58,7 @@ namespace Fujitsu.eDoc.SAPA.BLL.ProcessEngine
                         
                         try
                         {
-                            MoveFile(value, files[i]);
+                            //MoveFile(value, files[i]);
                         }
                         catch (Exception e)
                         {
