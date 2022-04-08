@@ -4,6 +4,7 @@ using Fujitsu.eDoc.SAPA.BLL.Model.BatchMessage;
 using Fujitsu.eDoc.SAPA.Common;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -11,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using Dapper;
 
 namespace Fujitsu.eDoc.SAPA.BLL
 {
@@ -45,6 +47,8 @@ namespace Fujitsu.eDoc.SAPA.BLL
                 string citizen = URNIdentifikators.Elements().Where(e => e.Name.LocalName == "ObjektId").FirstOrDefault().Value;
                 string CPR_nummer = ExtractSocialSecurityNumber(citizen);
 
+                ProcessInTableFuContactMsgReciever(CPR_nummer);
+
                 //XML execution query
                 string xmlQueryString = Core.Common.GetResourceXml("GetContactReferenceNumber.xml", XML_LOCATION, Assembly.GetExecutingAssembly());
 
@@ -68,9 +72,52 @@ namespace Fujitsu.eDoc.SAPA.BLL
                 }
 
                 Fujitsu.eDoc.Core.Common.SimpleEventLogging(typeof(CPREventhandler).FullName, LogName,
-                $"{MessageTypeName}\nSuccesfully processed the message id: {msgID}", System.Diagnostics.EventLogEntryType.Information);
+                $"{MessageTypeName}\nSuccesfully processed the message id: {msgID} with the event code: {personhaendelseCode}", System.Diagnostics.EventLogEntryType.Information);
             }
 
+            else
+            {
+                Fujitsu.eDoc.Core.Common.SimpleEventLogging(typeof(CPREventhandler).FullName, LogName,
+               $"{MessageTypeName}\nThe message id: {msgID} with the event code \"{personhaendelseCode}\" gets deleted because it is not not defined in code table CPR Message.", System.Diagnostics.EventLogEntryType.Information);
+            }
+
+        }
+
+        /// <summary>
+        /// To insert a CPR in the table for the purposes of external register
+        /// </summary>
+        /// <param name="CPR"></param>
+        private void ProcessInTableFuContactMsgReciever(string CPR)
+        {
+            string connString = Model.DbConnection.GetInstance.connString;
+            bool isContactExisting = false;
+
+            using (SqlConnection conn = new SqlConnection(connString))
+            {
+                string ct_recno = (conn.QueryFirstOrDefault<string>("SELECT * FROM CT_CONTACT WHERE CT_REFERENCENUMBER=@REFERENCENUMBER", new { REFERENCENUMBER = CPR }));
+
+                if (string.IsNullOrEmpty(ct_recno))
+                {
+                    Fujitsu.eDoc.Core.Common.SimpleEventLogging(typeof(CPREventhandler).FullName, LogName, $"{this.MessageTypeName}\nGetting the recno of the contact of the message id {msgID} could not be resolved cause it is empty. It won't be procceed in the tabel FU_CONTACT_MSGRECIEVER", System.Diagnostics.EventLogEntryType.Warning);
+                }
+
+                else
+                {
+                    int result = conn.ExecuteScalar<int>("SELECT COUNT(*) count FROM FU_CONTACT_MSGRECIEVER WHERE ct_recno=@ct_recno", new { ct_recno = ct_recno });
+                    if (result == 1)
+                        isContactExisting = true;
+
+                    if (isContactExisting)
+                    {
+                        conn.Execute("UPDATE FU_CONTACT_MSGRECIEVER SET FU_UPDATEDATE = NULL WHERE ct_recno=@ct_recno", new { ct_recno = ct_recno });
+                    }
+                    else
+                    {
+                        conn.Execute("INSERT INTO FU_CONTACT_MSGRECIEVER (CT_RECNO, REFERENCENUMBER,FU_INSERTDATE ,FU_UPDATEDATE ,FU_INSERTBY ,FU_UPDATEBY) VALUES (@ct_recno,@referencenumber,@insertDate,@updatedate,@insertby, @updateby)",
+                            new { ct_recno = ct_recno, referencenumber = CPR, insertDate = DateTime.Now, updatedate = DateTime.Now, insertby = 1, updateby = 1 });
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -103,25 +150,6 @@ namespace Fujitsu.eDoc.SAPA.BLL
         }
 
 
-
-        private static string[] GetFilesOnDirectory(string folderPath)
-        {
-            string[] files = null;
-            try
-            {
-
-                if (Directory.Exists(folderPath))
-                {
-                    files = Directory.GetFiles(folderPath, "*.xml");
-                }
-            }
-            catch (Exception ex)
-            {
-                Fujitsu.eDoc.Core.Common.SimpleEventLogging(typeof(CPREventhandler).FullName, LogName, $"Error on getting files in the directory {folderPath} \n {ex}", System.Diagnostics.EventLogEntryType.Error);
-            }
-
-            return files;
-        }
 
 
         private static void NotifyCaseWorker(List<BMCaseWorkers> listCase, string CRPMessage)
